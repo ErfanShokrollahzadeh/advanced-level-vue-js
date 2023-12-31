@@ -1,8 +1,19 @@
 <template>
-  <div>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <div class="bordered">
+          <h1>{{ msg }}</h1>
+          <hr />
+          <user-component></user-component>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div>
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
       <div class="container">
-        <!-- Logo and responsive toggle -->
         <div class="navbar-header">
           <button
             type="button"
@@ -19,7 +30,6 @@
             <span class="glyphicon glyphicon-fire"></span> Logo
           </a>
         </div>
-        <!-- Navbar links -->
         <div class="collapse navbar-collapse" id="navbar">
           <ul class="nav navbar-nav">
             <li class="active">
@@ -56,8 +66,6 @@
               </ul>
             </li>
           </ul>
-
-          <!-- Search -->
           <form class="navbar-form navbar-right" role="search">
             <div class="form-group">
               <input type="text" class="form-control" />
@@ -65,9 +73,7 @@
             <button type="submit" class="btn btn-default">Search</button>
           </form>
         </div>
-        <!-- /.navbar-collapse -->
       </div>
-      <!-- /.container -->
     </nav>
 
     <div class="jumbotron feature">
@@ -84,7 +90,6 @@
     </div>
 
     <div class="container">
-      <!-- Page Intro -->
       <div class="row page-intro">
         <div class="col-lg-12">
           <h1>
@@ -99,8 +104,6 @@
           </p>
         </div>
       </div>
-      <!-- /.row -->
-      <!-- Feature Row -->
       <div class="row">
         <article class="col-md-4 article-intro test">
           <a href="#">
@@ -158,17 +161,38 @@
           </p>
         </article>
       </div>
-      <!-- /.row -->
     </div>
 
    <app-footer></app-footer>
 
-  </div>
+  </div> -->
 </template>
 
 <script>
+import User from "./components/User.vue";
 export default {
   name: "app",
-  data() {},
+  data() {
+    return {
+      msg: "Welcome to Your Vue.js App",
+    };
+  },
+  components: {
+    "user-component": User,
+  },
 };
 </script>
+
+<style scoped>
+.bordered {
+  border: 2px solid red;
+  border-radius: 5px;
+  padding: 10px;
+  margin-top: 10px;
+  height: 400px;
+  background-color: lightgray;
+}
+.bordered h1 {
+  text-align: center;
+}
+</style>
