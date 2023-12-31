@@ -6,6 +6,7 @@
           <h1>{{ msg }}</h1>
           <hr />
           <user-component></user-component>
+          <div class="clearfix"></div>
         </div>
       </div>
     </div>
@@ -189,7 +190,6 @@ export default {
   border-radius: 5px;
   padding: 10px;
   margin-top: 10px;
-  height: 400px;
   background-color: lightgray;
 }
 .bordered h1 {
