@@ -7,8 +7,8 @@
 </template>
 
 <script>
-import UserFirstChild from "./UserfirstChild.vue";
-import UserSecondChild from "./UserSecondchild.vue";
+import UserFirstChild from "./userfirstChild.vue";
+import UserSecondChild from "./userSecondchild.vue";
 export default {
   data: function () {
     return {

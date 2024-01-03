@@ -5,7 +5,46 @@
         <div class="bordered">
           <h1>{{ msg }}</h1>
           <hr />
-          <user-component></user-component>
+          <a
+            class="btn btn-success"
+            v-on:click="selectedComponent = 'app-component-1'"
+            >component 1</a
+          >
+          <a
+            class="btn btn-success"
+            v-on:click="selectedComponent = 'app-component-2'"
+            >component 2</a
+          >
+          <hr />
+
+          <KeepAlive>
+            <component :is="selectedComponent">
+              <template v-if="selectedComponent == 'app-component-1'">
+                <div slot="header">
+                  <h2>{{ title_1 }}</h2>
+                  <p>{{ title_1 }}</p>
+                </div>
+                <p slot="paragraph">test</p>
+                <div slot="footer">
+                  <h3>sent footer</h3>
+                </div>
+              </template>
+
+              <template v-if="selectedComponent == 'app-component-2'">
+                <div slot="header">
+                  <h2>{{ title_2 }}</h2>
+                  <p>{{ title_2 }}</p>
+                </div>
+                <p slot="paragraph">test</p>
+                <div slot="footer">
+                  <h3>sent footer</h3>
+                </div>
+              </template>
+            </component>
+          </KeepAlive>
+          <hr />
+
+          <!-- <user-component></user-component> -->
           <div class="clearfix"></div>
         </div>
       </div>
@@ -170,16 +209,23 @@
 </template>
 
 <script>
-import User from "./components/User.vue";
+// import User from "./components/user.vue";
+import component_1 from "./components/component_1.vue";
+import component_2 from "./components/component_2.vue";
 export default {
   name: "app",
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
+      title_1: "title for component 1",
+      title_2: "title for component 2",
+      selectedComponent: "app-component-1",
     };
   },
   components: {
-    "user-component": User,
+    // "user-component": User,
+    "app-component-1": component_1,
+    "app-component-2": component_2,
   },
 };
 </script>
