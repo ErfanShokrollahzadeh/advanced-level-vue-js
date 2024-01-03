@@ -1,18 +1,31 @@
 <template>
   <div class="col-md-6">
     <div class="border-child">
-      <p>user age in parent is : {{ userAge }}</p>
-      <a class="btn btn-success" v-on:click="ChangeAge">Change Age</a>
+      <p>Age from parent is : {{ Age }}</p>
+      <a class="btn btn-success" v-on:click="CnageName">Cnage Age</a>
     </div>
     <div class="clearfix"></div>
   </div>
 </template>
 
 <script>
+import { BusEvent } from "../main.js";
 export default {
   props: {
-    userAge: Number,
-    ChangeAge: Function,
+    _age: Number,
+  },
+  data: function () {
+    return {
+      Age: this._age,
+    };
+  },
+  methods: {
+    CnageName: function () {
+      this.Age = BusEvent.PuplicAge;
+      //this.$emit("changeAge", this.Age);
+      // BusEvent.$emit("changeAge", this.Age);
+      BusEvent.ChangeAge(BusEvent.PuplicAge);
+    },
   },
 };
 </script>
