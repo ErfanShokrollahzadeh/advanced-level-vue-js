@@ -1,5 +1,21 @@
 <template>
   <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Create custom Directives</h1>
+        <hr />
+        <p v-custom:textcolor.delayed="'yellow'">
+          this is paragraph has custom directive
+        </p>
+        <hr />
+        <p v-test="{ color: 'orange', padding: '30px', fontSize: '2em' }">
+          this paragraph local directives
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container">
     <h1 id="header">Form</h1>
     <hr />
     <div class="row">
@@ -171,8 +187,7 @@
       </div>
     </div>
     <br />
-  </div>
-
+  </div> -->
   <!-- <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -409,6 +424,16 @@ export default {
     // "user-component": User,
     "app-component-1": component_1,
     "app-component-2": component_2,
+  },
+  directives: {
+    test: {
+      bind(el, binding, vnode) {
+        el.style.fontSize = binding.value.fontSize;
+        el.style.color = binding.value.color;
+        el.style.padding = binding.value.padding;
+        el.style.backgroundColor = "green";
+      },
+    },
   },
 };
 </script>
