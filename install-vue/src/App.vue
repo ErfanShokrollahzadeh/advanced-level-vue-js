@@ -1,5 +1,26 @@
 <template>
-  <div class="container">
+  <div class="container" style="color: black">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>{{ title }}</h1>
+        <hr />
+        <p>{{ title | toUpper }}</p>
+        <p>{{ title | tolower }}</p>
+        <p>{{ title | tolower | toUpper }}</p>
+      </div>
+      <div class="clearfix"></div>
+      <hr />
+      <div class="form-group">
+        <label>filter names</label>
+        <input type="text" class="form-control" v-model="filterText" />
+      </div>
+      <ul>
+        <li v-for="name in filteredNames" :key="name">{{ name }}</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- <div class="container">
     <div class="row">
       <div class="col-md-12">
         <h1>Create custom Directives</h1>
@@ -13,8 +34,7 @@
         </p>
       </div>
     </div>
-  </div>
-
+  </div> -->
   <!-- <div class="container">
     <h1 id="header">Form</h1>
     <hr />
@@ -405,6 +425,9 @@ export default {
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
+      names: ["mohamad", "milad", "iman", "elnaz", "reza", "shirin"],
+      filterText: "",
+      title: "Filters in Vue",
       title_1: "title for component 1",
       title_2: "title for component 2",
       selectedComponent: "app-component-1",
@@ -433,6 +456,18 @@ export default {
         el.style.padding = binding.value.padding;
         el.style.backgroundColor = "green";
       },
+    },
+  },
+  filters: {
+    toUpper(value) {
+      return value.toUpperCase();
+    },
+  },
+  computed: {
+    filteredNames() {
+      return this.names.filter((name) => {
+        return name.match(this.filterText);
+      });
     },
   },
 };

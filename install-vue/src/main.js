@@ -3,6 +3,10 @@ import App from "./App.vue";
 import AppTitle from "./AppTitle.vue";
 import AppFooter from "./components/AppFooter.vue";
 
+Vue.filter("tolower", function (value) {
+  return value.toLowerCase();
+});
+
 Vue.directive("custom", {
   bind(el, binding, vnode) {
     var delay = 0;
