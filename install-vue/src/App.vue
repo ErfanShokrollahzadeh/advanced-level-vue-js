@@ -1,5 +1,24 @@
 <template>
-  <div class="container" style="color: black">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <h1>Animation and transition</h1>
+        <hr />
+        <a class="btn btn-success" v-on:click="ShowAlert = !ShowAlert"
+          >Show/Hide alert</a
+        >
+        <br /><br />
+        <transition name="fade" appear>
+          <div class="alert alert-info" v-if="ShowAlert">this is alert</div>
+        </transition>
+        <transition name="slide" type="animation" appear>
+          <div class="alert alert-info" v-if="ShowAlert">this is alert</div>
+        </transition>
+      </div>
+    </div>
+  </div>
+
+  <!-- <div class="container" style="color: black">
     <div class="row">
       <div class="col-md-12">
         <h1>{{ title }}</h1>
@@ -21,8 +40,7 @@
     <div>
       <app-list></app-list>
     </div>
-  </div>
-
+  </div> -->
   <!-- <div class="container">
     <div class="row">
       <div class="col-md-12">
@@ -423,7 +441,7 @@
 // import User from "./components/user.vue";
 import component_1 from "./components/component_1.vue";
 import component_2 from "./components/component_2.vue";
-import list from "./components/list.vue";
+// import list from "./components/list.vue";
 export default {
   // name: "app",
   data() {
@@ -445,13 +463,14 @@ export default {
       gender: "male",
       priorities: ["low", "medium", "high"],
       selectedPriority: "low",
+      ShowAlert: true,
     };
   },
   components: {
     // "user-component": User,
     "app-component-1": component_1,
     "app-component-2": component_2,
-    "app-list": list,
+    // "app-list": list,
   },
   directives: {
     test: {
@@ -501,5 +520,54 @@ span {
 
 textarea {
   resize: vertical;
+}
+
+.fade-enter {
+  opacity: 0;
+}
+.fade-enter-active {
+  transition: all ease 2s;
+}
+.fade-leave {
+  opacity: 1;
+}
+.fade-leave-active {
+  transition: all ease 2s;
+  opacity: 0;
+}
+.slide-enter {
+  /* transform: translateY(40px); */
+  opacity: 0;
+}
+.slide-enter-active {
+  animation: slide-in 2s ease-in-out;
+  transition: all ease 2s;
+}
+.slide-leave {
+  /* transform: translateY(0px); */
+  opacity: 1;
+}
+.slide-leave-active {
+  animation: slide-out 2s ease-in-out;
+  transition: all ease 2s;
+  opacity: 0;
+}
+
+@keyframes slide-in {
+  from {
+    transform: translateY(40px);
+  }
+  to {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes slide-out {
+  from {
+    transform: translateY(0px);
+  }
+  to {
+    transform: translateY(40px);
+  }
 }
 </style>
