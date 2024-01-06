@@ -18,6 +18,9 @@
         <li v-for="name in filteredNames" :key="name">{{ name }}</li>
       </ul>
     </div>
+    <div>
+      <app-list></app-list>
+    </div>
   </div>
 
   <!-- <div class="container">
@@ -420,8 +423,9 @@
 // import User from "./components/user.vue";
 import component_1 from "./components/component_1.vue";
 import component_2 from "./components/component_2.vue";
+import list from "./components/list.vue";
 export default {
-  name: "app",
+  // name: "app",
   data() {
     return {
       msg: "Welcome to Your Vue.js App",
@@ -447,6 +451,7 @@ export default {
     // "user-component": User,
     "app-component-1": component_1,
     "app-component-2": component_2,
+    "app-list": list,
   },
   directives: {
     test: {

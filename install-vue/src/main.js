@@ -3,6 +3,12 @@ import App from "./App.vue";
 import AppTitle from "./AppTitle.vue";
 import AppFooter from "./components/AppFooter.vue";
 
+Vue.mixin({
+  created() {
+    console.log("log in main.js -global");
+  },
+});
+
 Vue.filter("tolower", function (value) {
   return value.toLowerCase();
 });
