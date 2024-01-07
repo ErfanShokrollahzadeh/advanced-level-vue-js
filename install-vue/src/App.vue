@@ -27,6 +27,18 @@
         </button>
       </div>
     </div>
+    <hr />
+    <div class="row">
+      <div class="col-md-12">
+        <button class="btn btn-success" v-on:click="Getusers">Get users</button>
+        <br /><br />
+        <ul class="list-group">
+          <li class="list-group-item" v-for="user in Users" :key="user.email">
+            {{ user.UserName }}
+          </li>
+        </ul>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -39,20 +51,32 @@ export default {
         name: "",
         email: "",
       },
+      Users: [],
     };
   },
   methods: {
     submitForm() {
       this.$http
-        .post(
-          "https://resource-vue-5873d-default-rtdb.firebaseio.com/User.json",
-          this.User
-        )
+        .post("", this.User)
         .then((response) => {
           console.log(response);
         })
         .catch((error) => {
           console.log(error);
+        });
+    },
+    Getusers() {
+      this.$http
+        .get("") // url in the main.js
+        .then((response) => {
+          return response.json();
+        })
+        .then((data) => {
+          const resultArray = [];
+          for (let key in data) {
+            resultArray.push(data[key]);
+          }
+          this.Users = resultArray;
         });
     },
   },

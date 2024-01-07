@@ -6,6 +6,22 @@ import AppFooter from "./components/AppFooter.vue";
 
 Vue.use(VueResource);
 
+Vue.http.options.root =
+  "https://resource-vue-5873d-default-rtdb.firebaseio.com/User.json";
+
+Vue.http.interceptors.push((request, next) => {
+  request.headers.set("Authentication", "this is for auth");
+  console.log(request);
+  if (request.method == "POST") {
+    request.method = "PUT";
+  }
+  next((response) => {
+    response.json = () => {
+      return { message: response.body };
+    };
+  });
+});
+
 Vue.mixin({
   created() {
     console.log("log in main.js -global");
