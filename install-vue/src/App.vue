@@ -7,13 +7,30 @@
         <a class="btn btn-success" v-on:click="ShowAlert = !ShowAlert"
           >Show/Hide alert</a
         >
+        <div class="col-md-3">
+          <select v-model="alretName" class="form-control">
+            <option value="fade">fade</option>
+            <option value="slide">slide</option>
+          </select>
+        </div>
         <br /><br />
-        <transition name="fade" appear>
+
+        <transition :name="alretName" appear>
           <div class="alert alert-info" v-if="ShowAlert">this is alert</div>
         </transition>
-        <transition name="slide" type="animation" appear>
+        <transition :name="alretName" appear>
           <div class="alert alert-info" v-if="ShowAlert">this is alert</div>
         </transition>
+        <hr />
+
+        <!-- <transition
+          appear
+          enter-active-class="animate__fadeInUp delay-2s"
+          leave-active-class="animate__fadeInDown"
+          mode="out-in"
+        >
+          <div class="alert alert-info" v-if="ShowAlert">this is alert</div>
+        </transition> -->
       </div>
     </div>
   </div>
@@ -464,6 +481,7 @@ export default {
       priorities: ["low", "medium", "high"],
       selectedPriority: "low",
       ShowAlert: true,
+      alretName: "fade",
     };
   },
   components: {
