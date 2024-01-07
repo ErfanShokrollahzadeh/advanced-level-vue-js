@@ -1,7 +1,10 @@
 import Vue from "vue";
+import VueResource from "vue-resource";
 import App from "./App.vue";
 import AppTitle from "./AppTitle.vue";
 import AppFooter from "./components/AppFooter.vue";
+
+Vue.use(VueResource);
 
 Vue.mixin({
   created() {
