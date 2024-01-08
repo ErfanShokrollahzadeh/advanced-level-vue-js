@@ -52,22 +52,25 @@ export default {
         email: "",
       },
       Users: [],
+      resource: {},
     };
   },
   methods: {
     submitForm() {
-      this.$http
-        .post("", this.User)
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((error) => {
-          console.log(error);
-        });
+      // this.$http
+      //   .post("", this.User)
+      //   .then((response) => {
+      //     console.log(response);
+      //   })
+      //   .catch((error) => {
+      //     console.log(error);
+      //   });
+      // this.resource.save({}, this.User);
+      this.resource.SaveUser(this.User);
     },
     Getusers() {
       this.$http
-        .get("") // url in the main.js
+        .get("User.json") // url in the main.js
         .then((response) => {
           return response.json();
         })
@@ -79,6 +82,14 @@ export default {
           this.Users = resultArray;
         });
     },
+  },
+  created() {
+    const customAction = {
+      SaveUser: { url: "User.json", method: "POST" },
+      EditUser: { url: "User.json", method: "PUT" },
+    };
+
+    this.resource = this.$resource("User.json", {}, customAction);
   },
 };
 </script>
