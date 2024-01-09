@@ -3,6 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { Routes } from "./Routes.js";
 import App from "./App.vue";
 import "bootstrap/dist/css/bootstrap.min.css";
+import "animate.css/animate.min.css";
 
 // Create a router instance
 const router = createRouter({

@@ -2,7 +2,9 @@
   <div>
     <h3>Edit the User Page</h3>
     <hr />
-    <p class="alert alert-success">{{ loadedId }}</p>
+    <p class="alert alert-success">Loaded Id is : {{ loadedId }}</p>
+    <hr />
+    <router-link to="/404" class="btn btn-danger">404</router-link>
   </div>
 </template>
 

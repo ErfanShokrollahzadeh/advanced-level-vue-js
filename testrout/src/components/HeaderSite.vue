@@ -7,12 +7,6 @@
       <li class="nav-item">
         <router-link to="/User" class="nav-link">User</router-link>
       </li>
-      <li class="nav-item">
-        <router-link to="/UserEdit/1" class="nav-link">UserEdit 1</router-link>
-      </li>
-      <li class="nav-item">
-        <router-link to="/UserEdit/2" class="nav-link">UserEdit 2</router-link>
-      </li>
     </ul>
 
     <!-- <ul class="nav nav-pills">
