@@ -11,6 +11,10 @@
     <hr />
     <div class="alert alert-success">anoter counter</div>
     <app-another-counter></app-another-counter>
+    <hr />
+    <hr />
+    <input type="text" class="form-control" v-model="name" />
+    <p>{{ name }}</p>
   </div>
 </template>
 
@@ -58,6 +62,16 @@ export default {
     "app-result": ResultVue,
     "app-another-result": AnotherResult,
     "app-another-counter": AnotherCounter,
+  },
+  computed: {
+    name: {
+      get() {
+        return this.$store.getters.getName;
+      },
+      set(value) {
+        this.$store.commit("chnageName", value);
+      },
+    },
   },
 };
 </script>

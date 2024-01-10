@@ -1,10 +1,11 @@
-// import Vue from "vue";
-// import Vuex from "vuex";
+// store.js
 import { createStore } from "vuex";
+// import counter from "./modules/counter.js";
 
 export const store = createStore({
   state: {
     counter: 0,
+    name: "erfan",
   },
   getters: {
     doubleCounter(state) {
@@ -13,6 +14,9 @@ export const store = createStore({
     stringCounter(state) {
       return state.counter + "clicks";
     },
+    getName(state) {
+      return state.name;
+    },
   },
   mutations: {
     increment(state, time) {
@@ -20,6 +24,9 @@ export const store = createStore({
     },
     decrement(state, time) {
       return (state.counter -= time);
+    },
+    chnageName(state, newname) {
+      state.name = newname;
     },
   },
   actions: {
@@ -38,6 +45,9 @@ export const store = createStore({
       setTimeout(() => {
         context.commit("decrement", data.time);
       }, data.duration);
+    },
+    chnageName(context, newname) {
+      context.commit("chnageName", newname);
     },
   },
 });
