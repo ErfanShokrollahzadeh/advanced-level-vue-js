@@ -8,6 +8,9 @@
     <app-another-result></app-another-result>
     <hr />
     <app-counter></app-counter>
+    <hr />
+    <div class="alert alert-success">anoter counter</div>
+    <app-another-counter></app-another-counter>
   </div>
 </template>
 
@@ -46,6 +49,7 @@
 import CounterVue from "./components/CounterVue.vue";
 import ResultVue from "./components/ResultVue.vue";
 import AnotherResult from "./components/AnotherResult.vue";
+import AnotherCounter from "./components/AnotherCounter.vue";
 // import HeaderSite from "./components/HeaderSite.vue";
 export default {
   components: {
@@ -53,6 +57,7 @@ export default {
     "app-counter": CounterVue,
     "app-result": ResultVue,
     "app-another-result": AnotherResult,
+    "app-another-counter": AnotherCounter,
   },
 };
 </script>

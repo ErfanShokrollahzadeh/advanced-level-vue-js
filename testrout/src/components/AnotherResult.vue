@@ -1,16 +1,24 @@
 <template>
   <div>
-    <h3>Counter is : {{ counter }}</h3>
+    <h3>Counter is : {{ doubleCounter }}</h3>
+    <h3>StringCounter is : {{ stringCounter }}</h3>
   </div>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
 export default {
   // props: ["counter"],
   computed: {
-    counter() {
-      return this.$store.getters.doubleCounter;
-    },
+    ...mapGetters(["doubleCounter", "stringCounter"]),
   },
+  //     {
+  //     doubleCounter() {
+  //       return this.$store.getters.doubleCounter;
+  //     },
+  //     stringCounter() {
+  //       return this.$store.getters.stringCounter;
+  //     },
+  //   },
 };
 </script>
