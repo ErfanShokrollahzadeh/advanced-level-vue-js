@@ -30,7 +30,8 @@ export default {
       link: {
         name: "editUser",
         params: { id: this.$route.params.id },
-        query: { name: "erfan", family: "shokr" },
+        // query: { name: "erfan", family: "shokr" },
+        hash: "#link",
       },
     };
   },

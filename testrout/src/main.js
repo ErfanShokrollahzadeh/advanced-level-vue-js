@@ -9,6 +9,22 @@ import "animate.css/animate.min.css";
 const router = createRouter({
   history: createWebHistory(),
   routes: Routes,
+  scrollBehavior(to, savedPosition) {
+    if (savedPosition) {
+      return savedPosition;
+    }
+    if (to.hash) {
+      return {
+        selector: to.hash,
+      };
+    }
+  },
+});
+
+router.beforeEach((to, from, next) => {
+  console.log("Global beforeEach");
+  console.log(to, from);
+  next();
 });
 
 // Create the Vue app instance and use the router
